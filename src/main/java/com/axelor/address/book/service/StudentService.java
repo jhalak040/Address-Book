@@ -1,7 +1,7 @@
 package com.axelor.address.book.service;
 
 import java.util.List;
-import  com.axelor.address.book.db.Student;
+import com.axelor.address.book.db.Student;
 
 public interface StudentService {
 

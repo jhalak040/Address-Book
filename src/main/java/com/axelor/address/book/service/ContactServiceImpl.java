@@ -16,7 +16,6 @@ public class ContactServiceImpl implements ContactService {
   public void insertContact(Contact contact) {
     EntityManager em = emp.get();
     em.merge(contact);
-
   }
 
   @Override
@@ -24,7 +23,6 @@ public class ContactServiceImpl implements ContactService {
   public void updateContact(Contact contact) {
     EntityManager em = emp.get();
     em.merge(contact);
-
   }
 
   @Override
@@ -40,8 +38,6 @@ public class ContactServiceImpl implements ContactService {
     EntityManager em = emp.get();
     Contact c = em.find(Contact.class, contactId);
     em.remove(c);
-
-
   }
 
 }

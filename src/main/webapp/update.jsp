@@ -1,4 +1,3 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -19,7 +18,7 @@
 a {
 	color: black;
 	text-align: center;
-	padding: 	10px;
+	padding: 10px;
 	text-decoration: none;
 	font-size: 18px;
 	line-height: 25px;
@@ -58,20 +57,16 @@ tr:nth-child(even) {
 	background-color: #f2f2f2
 }
 </style>
-
 </head>
 <body>
-
 	<div>
 		<form action="/AddressBook/update/${student.studentId}" method="post">
-
 			<table cellpadding="3pt">
 				<tr>
 					<td>StudentID:</td>
 					<td><input type="text" name="studentId"
 						value="${student.studentId}" readonly="readonly" /></td>
 				</tr>
-
 				<tr>
 					<td>FirstName :</td>
 					<td><input type="text" name="firstName"
@@ -85,16 +80,12 @@ tr:nth-child(even) {
 			</table>
 			<c:forEach items="${student.addresslist}" var="address">
 				<input type="hidden" value="${address.addressId}" name="addId" />
-
 				<table cellpadding="3pt">
-
 					<tr>
-
 						<td>BuildingName :</td>
 						<td><input type="text" name="buildingName"
 							value="${address.buildingName}" /></td>
 					</tr>
-
 					<tr>
 						<td>FlatNumber:</td>
 						<td><input type="text" name="flatNum"
@@ -118,7 +109,10 @@ tr:nth-child(even) {
 						<td><input type="text" name="pincode"
 							value="${address.pincode}" /></td>
 					</tr>
-					<tr><td><a href="/AddressBook/delecteaddress/${address.addressId}"> Delete</a></td>
+					<tr>
+						<td><a
+							href="/AddressBook/delecteaddress/${address.addressId}">
+								Delete</a></td>
 					</tr>
 				</table>
 			</c:forEach>
@@ -126,29 +120,24 @@ tr:nth-child(even) {
 			<c:forEach items="${student.contactlist}" var="contact">
 				<input type="hidden" name="contId" value="${contact.contactId}" />
 				<table>
-
 					<tr>
-
 						<td>contactNumber</td>
 						<td><input type="text" name="contactNum"
 							value="${contact.contactNum}" /></td>
-							<td><a href="/AddressBook/deletecontact/${contact.contactId}"> Delete</a></td>
+						<td><a href="/AddressBook/deletecontact/${contact.contactId}">
+								Delete</a></td>
 					</tr>
 				</table>
 			</c:forEach>
 
 			<div>
 				<a
-					href="<%=request.getContextPath()%>/getaddress/${student.studentId}">
-					add address</a> <a
-					href="<%=request.getContextPath()%>/getcontact/${student.studentId}">
-
-					add contact</a> <input type="submit" value="Save" />
+					href="<%=request.getContextPath()%>/getaddress/${student.studentId}">add
+					address</a> <a
+					href="<%=request.getContextPath()%>/getcontact/${student.studentId}">add
+					contact</a> <input type="submit" value="Save" />
 			</div>
 		</form>
 	</div>
-
-
-
 </body>
 </html>

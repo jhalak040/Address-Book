@@ -14,13 +14,9 @@ import com.axelor.address.book.db.Contact;
 
 @Entity
 public class Student {
-
-
-
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private int studentId;
-
 
   private String firstName;
 

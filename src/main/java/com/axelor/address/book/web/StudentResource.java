@@ -109,7 +109,6 @@ public class StudentResource {
     request.setAttribute("student", student);
     RequestDispatcher dispatcher = request.getRequestDispatcher("/update.jsp");
     dispatcher.forward(request, response);
-
   }
 
   @POST
@@ -123,6 +122,7 @@ public class StudentResource {
     List<Contact> contactList = student.getContactlist();
     String[] contIds = request.getParameterValues("contId");
     String[] contactNums = request.getParameterValues("contactNum");
+
     for (int i = 0; i < contIds.length; i++) {
       Contact contact = contactService.getContactById(Integer.parseInt(contIds[i]));
       contactList.remove(contact);
@@ -154,11 +154,6 @@ public class StudentResource {
       addressList.add(address);
     }
     student.setAddresslist(addressList);
-    /*
-     * address.setStudent(student); studentInterface.updateStudent(student); RequestDispatcher
-     * dispatcher = request.getRequestDispatcher("/index.jsp"); dispatcher.forward(request,
-     * response);
-     */
     response.sendRedirect(request.getContextPath());
   }
 
@@ -260,7 +255,6 @@ public class StudentResource {
     response.sendRedirect(request.getContextPath());
   }
 
-
   @GET
   @Path("/deletecontact/{id}")
   public void deleteByContact(@PathParam("id") int contId, @Context HttpServletRequest request,
@@ -279,7 +273,7 @@ public class StudentResource {
   @Path("/delecteaddress/{id}")
   public void deleteByAddress(@PathParam("id") int addId, @Context HttpServletRequest request,
       @Context HttpServletResponse response) throws IOException {
-
+    
     Address address = addressService.getAddressById(addId);
     Student student = address.getStudent();
     addressService.deleteAddress(addId);
@@ -289,5 +283,6 @@ public class StudentResource {
     studentservice.updateStudent(student);
     response.sendRedirect(request.getContextPath());
   }
-
 }
+
+

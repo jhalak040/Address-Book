@@ -31,7 +31,6 @@ public class AddressServiceImpl implements AddressService {
   public void updateAddress(Address address) {
     EntityManager em = emp.get();
     em.merge(address);
-
   }
 
   @Override
@@ -39,7 +38,6 @@ public class AddressServiceImpl implements AddressService {
   public Address getAddressById(int studentId) {
     EntityManager em = emp.get();
     return em.find(Address.class, studentId);
-
   }
 
   @Override
@@ -48,6 +46,5 @@ public class AddressServiceImpl implements AddressService {
     EntityManager em = emp.get();
     Address a = em.find(Address.class, addressId);
     em.remove(a);
-
   }
 }

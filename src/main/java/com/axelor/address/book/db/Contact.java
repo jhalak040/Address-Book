@@ -6,15 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import  com.axelor.address.book.db.Student;
+import com.axelor.address.book.db.Student;
 
 @Entity
 public class Contact {
 
-
-
   @ManyToOne(cascade = CascadeType.ALL)
-  // @JoinColumn
   private Student student;
 
   public Student getStudent() {
@@ -57,6 +54,5 @@ public class Contact {
     this.setContactNum(contactNum);
 
   }
-
 
 }

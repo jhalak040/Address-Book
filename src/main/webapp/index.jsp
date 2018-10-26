@@ -8,18 +8,14 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AddressBook</title>
-<!-- <base href="${pageContext.request.contextPath}"> -->
-
 <script type="text/javascript" language="javascript">
 	function myaddress() {
 		var add = document.getElementById("mytable");
 		add.innerHTML = document.getElementById("myrows").innerHTML;
 	}
-
 	function mycontact() {
 		var add = document.getElementById("addcontact");
 		add.innerHTML = document.getElementById("contacttable").innerHTML;
-
 	}
 </script>
 
@@ -53,11 +49,10 @@ tr:nth-child(even) {
 }
 </style>
 </head>
+
 <body>
 	<div>
-
 		<br />
-
 		<form action="<%=request.getContextPath()%>/insert" method="post">
 			<table cellpadding="5pt" border="1px solid black ">
 				<tr>
@@ -74,7 +69,6 @@ tr:nth-child(even) {
 					<td><input type="text" name="lastName" /></td>
 				</tr>
 			</table>
-
 
 			<table cellpadding="5pt" border="1px solid black ">
 				<tr>
@@ -109,7 +103,6 @@ tr:nth-child(even) {
 					<table id="mytable">
 					</table>
 				</tr>
-
 				<tr>
 					<td><input type="button" value="myaddress"
 						onClick="myaddress()"></td>
@@ -133,29 +126,20 @@ tr:nth-child(even) {
 				<tr>
 					<td><input type="button" value="mycontact"
 						onClick="mycontact()"></td>
-					<td>
-					<td>
-						<!-- <button onclick="myaddress()">add Another
-							address</button> -->
 				</tr>
-
 				<tr>
 					<td><input type="submit" value="sumit" /></td>
 					<td></td>
 				</tr>
 			</table>
-
-
-
-
 		</form>
 	</div>
+
 	<div id="table-scroll">
 		<table cellpadding="5pt" border="1px solid black ">
 			<tr>
 				<th colspan="8">Address Book</th>
 			</tr>
-
 			<tr>
 				<th colspan="8">Search
 					<form action="<%=request.getContextPath()%>/student/1"
@@ -169,11 +153,9 @@ tr:nth-child(even) {
 						<input type="text" name="namesearch" /> <input type="submit"
 							value="namesearch" />
 					</form>
-
 				</th>
 			</tr>
 			<tr>
-
 				<th>StudentId</th>
 				<th>FirstName</th>
 				<th>LastName</th>
@@ -182,58 +164,37 @@ tr:nth-child(even) {
 				<th>Delete</th>
 				<th>Update</th>
 				<th>Add Another Address</th>
-
 			</tr>
 			<c:forEach items="${StudentList}" var="student">
-
 				<tr>
 					<td><c:out value="${student.studentId}"></c:out></td>
 					<td><c:out value="${student.firstName}"></c:out></td>
 					<td><c:out value="${student.lastName}"></c:out></td>
-
 					<td><c:forEach items="${student.addresslist}" var="address">
-
 							<c:out value="${address.flatNum}"></c:out>
 							<c:out value="${address.buildingName}"></c:out>
 							<c:out value="${address.streetName}"></c:out>
 							<c:out value="${address.city}"></c:out>
 							<c:out value="${address.state}"></c:out>
 							<c:out value="${address.pincode}"></c:out>
-
 							<br />
 						</c:forEach></td>
-
 					<td><c:forEach items="${student.contactlist}" var="contact">
 							<c:out value="${contact.contactNum}"></c:out>
 							<br />
 						</c:forEach></td>
-
-
-
-
 					<td><a href="delete/${student.studentId}"> Delete</a></td>
 					<!-- 	onclick="return window.confirm('Are you sure ?')" -->
-
 					<td><a href="getStudent/${student.studentId}"> Update</a></td>
-
 					<td><a
 						href="<%=request.getContextPath()%>/getaddress/${student.studentId}">
 							add address</a></td>
-
-
 					<td><a
 						href="<%=request.getContextPath()%>/getcontact/${student.studentId}">
 							add contact</a></td>
-
 				</tr>
-
 			</c:forEach>
-
-
 		</table>
 	</div>
-
-
-
 </body>
 </html>
